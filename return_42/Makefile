@@ -1,12 +1,18 @@
-PROJ	= fourtytwo
-ENTRY 	= _start
+# variables
 
+PROJ		= fourtytwo
+ENTRY 		= _start
+DYLD_LD_FLAGS 	= -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path`
+LDFLAGS		= -e $(ENTRY) $(DYLD_LD_FLAGS) -arch arm64
+
+# main target
 $(PROJ): $(PROJ).o
-	ld -e $(ENTRY) -o $(PROJ) $(PROJ).o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64
+	ld $(LDFLAGS) -o $(PROJ) $(PROJ).o
 
 $(PROJ).o: clean $(PROJ).s
 	as -o $(PROJ).o $(PROJ).s
 
+# cleanup target
 .PHONY: clean
 clean:
 	rm -f *.o $(PROJ)
