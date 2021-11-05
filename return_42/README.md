@@ -2,6 +2,7 @@
 simple assembly program that returns 42, and the process and research of golfing it.
 
 # resources
+- https://www.tiraniddo.dev/2010/06/quest-part-2.html
 - https://h3adsh0tzz.com/2020/01/macho-file-format/
 - https://github.com/horsicq/XMachOViewer
 - https://ftp.lol/posts/small-elf.html
